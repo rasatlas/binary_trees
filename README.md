@@ -77,5 +77,3 @@ __Print function__<br>
 To match the examples in the tasks, you are given [`this function`](https://github.com/alx-tools/0x1C.c) <br>
 
 This function is used only for visualization purposes. You don’t have to push it to your repo. It may not be used during the correction.
-
-## Tasks
