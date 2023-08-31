@@ -10,10 +10,13 @@
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-	if (tree)
-	{
-		free(tree->left);
-		free(tree->right);
-		free(tree);
-	}
+	if (!tree)
+		return;
+	/* Delete left sub-tree */
+	binary_tree_delete(tree->left);
+	/* Delete right sub-tree */
+	binary_tree_delete(tree->right);
+	/* At last, delete root node */
+	free(tree);
+	return;
 }
