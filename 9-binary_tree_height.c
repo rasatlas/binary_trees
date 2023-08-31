@@ -11,12 +11,16 @@ size_t binary_tree_height(const binary_tree_t *tree)
 {
 	if (tree)
 	{
-		/* Find the height of left, right subtrees */
-		size_t left_height = binary_tree_height(tree->left);
-		size_t right_height = binary_tree_height(tree->right);
+		size_t left_height = 0;
+		size_t right_height = 0;
 
-		/* Find max(subtree_height) + 1 to get the height of the tree */
-		return (1 + (left_height > right_height ? left_height : right_height));
+		/* Find the height of left, right subtrees */
+		/* 1 is added to compensate for the parent node edge */
+		left_height = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+		right_height = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+
+		/* Find max of left and right subtrees to get the height of the tree */
+		return (left_height > right_height ? left_height : right_height);
 	}
 	return (0);
 }
